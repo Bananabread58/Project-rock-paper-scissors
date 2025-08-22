@@ -10,22 +10,26 @@
 <body>
     <script>
 
+        let humanScore = 0
+        let computerScore = 0
+
+
 
         function getComputerChoice() {
-            let zero = "Rock";
-            let one = "Paper"; 
-            let two= "Scissors";
+            let zero = "rock";
+            let one = "paper";
+            let two = "scissors";
             let answer = Math.floor(Math.random() * 3);
 
-            
 
-            if(answer === 0){
+
+            if (answer === 0) {
                 return zero;
             }
-             if(answer === 1){
+            if (answer === 1) {
                 return one;
             }
-            if(answer === 2){
+            if (answer === 2) {
                 return two;
             }
         }
@@ -33,7 +37,62 @@
         console.log(getComputerChoice())
 
 
+        function getHumanChoice() {
+            let humanChoice = prompt("Rock paper or scissors")
+
+
+
+            return humanChoice;
+        }
+        getHumanChoice()
+
+        function playRound(humanChoice, computerChoice) {
+            humanChoice === humanChoice.toLowerCase();
+
+            if (humanChoice === computerChoice) {
+                console.log("It's a tie! Both chose" + humanChoice);
+            }
+            else if (humanChoice === "rock") {
+                if (computerChoice === "scissors") {
+                    console.log("You win! Rock beats Scissors");
+                    humanScore++
+            } else {
+                console.log("You Lose! Paper beats Rock");
+                computerScore++
+            }
+        }
+            else if (humanChoice === "paper") {
+                if (computerChoice === "rock") {
+                    console.log("You win! Paper beats Rock");
+                    humanScore++
+            } else {
+                console.log("You Lose! Scissors beats Paper");
+                computerScore++
+            }
+       }
+
+       else if (humanChoice === "scissors"){
+        if (computerChoice ==="paper") {
+            console.log("You win! Scissors beats Paper");
+            humanScore++
+        } else {
+            console.log("You Lose!Rock beats Scissors");
+            computerScore++
+        }
+       }
+
+        
+    }
+
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection)
+
+        console.log(getComputerChoice(), getHumanChoice())
+
     </script>
+
 </body>
 
 </html>
